@@ -1,0 +1,23 @@
+.header {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background-color: black;
+    color: white;
+    width: 44.75%;
+}
+
+#inc{
+    font-size: 20px;
+    color: silver;
+}
+
+p{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#button-space{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#button-search{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
