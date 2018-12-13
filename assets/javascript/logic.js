@@ -1,11 +1,7 @@
 var topics = [
 "the office",
-"michael scott", 
-"dwight schrute", 
-"jim halpert", 
-"pam beesly", 
-"kevin malone", 
 "dunder mifflin",
+"michael scott",
 ]
 
 function displayGIF() {
@@ -29,28 +25,25 @@ function displayGIF() {
 
             gifDiv.append(ratingText);
 
-            var stillURL = paper[i].images.fixed_width_still.url;
-            console.log(stillURL);
-
-            var gif = $("<img>").attr("src", stillURL);
+            var gif = $("<img>").attr("src", paper[i].images.fixed_height_still.url);
             
             gif.addClass("gifImage");
+
+            gif.attr("data-state", "still");
+            gif.attr("data-still", paper[i].images.fixed_height_still.url);
+            gif.attr("data-ani", paper[i].images.fixed_height.url);
 
             gifDiv.append(gif);
 
             $("#gif-spot").prepend(gifDiv);
-
-            var gifURL = response.data[i].images.fixed_width.url;
-
-            $(".gifImage").attr("data-state", "still");
         };
         $(".gifImage").on("click", function() {
             var state = $(this).attr("data-state")
             if (state === "still") {
-                $(this).attr("src", gifURL);
+                $(this).attr("src", $(this).attr("data-ani"));
                 $(this).attr("data-state", "animate")
             } else {
-                $(this).attr("src", stillURL);
+                $(this).attr("src", $(this).attr("data-still"));
                 $(this).attr("data-state", "still");
             }
         });
@@ -58,7 +51,7 @@ function displayGIF() {
 }
 
 function buttonRender() {
-    $("#button-space").empty
+    $("#button-space").empty()
     for (var i = 0; i < topics.length; i++) {
         var b = $("<button>");
         b.addClass("dunder-btn");
@@ -71,7 +64,8 @@ function buttonRender() {
 $("#button-search").on("click", function(event) {
     event.preventDefault();
     var character = $("#add-gif").val().trim();
-    character.push(topics);
+    topics.push(character);
+    $("#add-gif").val("");
     buttonRender();
 })
 
