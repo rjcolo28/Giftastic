@@ -33,22 +33,23 @@ function displayGIF() {
             gif.attr("data-still", paper[i].images.fixed_height_still.url);
             gif.attr("data-ani", paper[i].images.fixed_height.url);
 
-            gifDiv.append(gif);
+            gifDiv.prepend(gif);
 
-            $("#gif-spot").prepend(gifDiv);
+            $(".gif-spot").prepend(gifDiv);
         };
-        $(".gifImage").on("click", function() {
-            var state = $(this).attr("data-state")
-            if (state === "still") {
-                $(this).attr("src", $(this).attr("data-ani"));
-                $(this).attr("data-state", "animate")
-            } else {
-                $(this).attr("src", $(this).attr("data-still"));
-                $(this).attr("data-state", "still");
-            }
-        });
     });
 }
+
+$(".gif-spot").on("click", ".gifImage", function() {
+    var state = $(this).attr("data-state")
+    if (state === "still") {
+        $(this).attr("src", $(this).attr("data-ani"));
+        $(this).attr("data-state", "animate")
+    } else {
+        $(this).attr("src", $(this).attr("data-still"));
+        $(this).attr("data-state", "still");
+    }
+});
 
 function buttonRender() {
     $("#button-space").empty()
