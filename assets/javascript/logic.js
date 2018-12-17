@@ -6,7 +6,7 @@ var topics = [
 
 function displayGIF() {
     var character = $(this).attr("data-name");
-    queryURL = "http://api.giphy.com/v1/gifs/search?q=" + character + "&api_key=9vUSua8oJ9bi9oejRffjSEhZkRHevlw7&limit=10";
+    queryURL = "https://api.giphy.com/v1/gifs/search?q=" + character + "&api_key=9vUSua8oJ9bi9oejRffjSEhZkRHevlw7&limit=10";
     $.ajax({
         url: queryURL,
         method: "GET",
