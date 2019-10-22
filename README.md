@@ -9,6 +9,7 @@ It takes ten gifs from the Giphy website using its API and uploads them onto the
 - HTML
 - CSS
 - Javascript
+- jQuery
 - Giphy API
 
 ## Demo
